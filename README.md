@@ -2,6 +2,7 @@
 THIS IS A DEMO PROJECT
 ## People
 Aryaman Maheshwari: Backend + Head of Project
+
 Nawon Kim: Frontend
 
 ## Developing
