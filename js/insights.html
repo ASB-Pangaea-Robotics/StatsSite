@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>First Scout - Insights</title>
+        <link rel="stylesheet" href="insights.css">
+    </head>
+    <body>
+        <div class="header">
+            <div class="logo">
+                <img src="assets/ftcLogo.png" alt="First Scout Logo">
+            </div>
+            <h1>FIRST SCOUTING</h1>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search team/number..">
+        </div>
+
+        <div class="graph-container">
+            <canvas id="graph"></canvas>
+        </div>
+
+        <div class="matches-container">
+            <div class="matches-header">
+                <h2>Most Recent Match</h2>
+            </div>
+
+            <div class="alliance-container">
+                <div class="alliance-card" id="blue-alliance">
+                    <div class="alliance"><h2>Blue Alliance</h2></div>
+                    <div class="team-name" id="blue-A"><h3>Team Matrix</h3></div>
+                    <div class="team-name" id="blue-B"><h3>Team ABC</h3></div>
+                    <div class="team-score" id="blue-score"><h3>Team Score: 100</h3></div>
+                </div>
+                <div class="alliance-card" id="red-alliance">
+                    <div class="alliance"><h2>Red Alliance</h2></div>
+                    <div class="team-name" id="red-A"><h3>Team Matrix</h3></div>
+                    <div class="team-name" id="red-B"><h3>Team ABC</h3></div>
+                    <div class="team-score" id="red-score"><h3>Team Score: 200</h3></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
