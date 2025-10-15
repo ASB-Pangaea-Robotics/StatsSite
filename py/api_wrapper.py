@@ -1,7 +1,6 @@
 import datetime
 import json
 import os
-from unittest import case
 
 import requests
 import dotenv
@@ -11,7 +10,6 @@ import dotenv
 # dotenv.load_dotenv()
 #
 # token = os.getenv("TOKEN")
-
 
 url = "https://api.ftcscout.org/rest/v1"
 test_id = 21971
