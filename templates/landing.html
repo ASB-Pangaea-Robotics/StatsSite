@@ -3,8 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' https://cdn.jsdelivr.net https://kit.fontawesome.com; style-src 'self' 'unsafe-inline' https://kit.fontawesome.com;">
         <title>First Scout - Home</title>
         <link rel="stylesheet" href="../static/landing.css">
+        <script src="https://kit.fontawesome.com/0e63ee6b80.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="header">
@@ -14,8 +16,12 @@
             <h1>FIRST SCOUTING</h1>
         </div>
 
-        <div class="search-bar">
-            <input type="text" placeholder="Search..">
+        <div class="search-container">
+            <form action="" class="search-bar" id="search-form">
+                <input type="text" placeholder="Search.." id="input-box">
+                <button>🔍</button>
+            </form>
+            <div class="result-box"></div>
         </div>
 
         <div class="matches-container">
@@ -38,8 +44,11 @@
                 </div>
             </div>
         </div>
+
         <div class="footer">
             <p>Not an official First Site but made by Pangea#21971</p>
         </div>
+
+        <script src="../static/autocomplete.js"></script>
     </body>
 </html>
