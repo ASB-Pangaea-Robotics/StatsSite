@@ -1,4 +1,4 @@
-let availableKeywords = [
+let searchKeywords = [
     {'name': "Pangea", 'number': 21917},
     {'name': "G-FORCE", 'number': 2818},
     {'name': "Trobots", 'number': 2836},
@@ -20,36 +20,22 @@ let availableKeywords = [
 ];
 
 document.addEventListener("DOMContentLoaded", function() {
-    const resultBox = document.querySelector(".result-box");
-    const inputBox = document.getElementById("input-box");
-    const form = document.querySelector(".search-bar");
-    let team = "Pangea";
+    const params = new URLSearchParams(window.location.search);
+    const resultBox = document.querySelector(".search-results-container");
 
-    form.onsubmit = (e)=> {
-        e.preventDefault();
+    let result = [];
+    let input = params.get("team") || "NULL";
 
-        team = inputBox.value.trim();
-
-        if (team !== "") {
-            window.location.href = `search.html?team=${encodeURIComponent(team)}`;
-        }
+    if(input.length) {
+        result = searchKeywords.filter((keyword)=>{
+            return keyword.name.toLowerCase().includes(input.toLowerCase()) || keyword.number.toString().includes(input);
+        });
+        console.log(result);
     }
+    display(result);
 
-    inputBox.onkeyup = function() {
-        let result = [];
-        let input = inputBox.value;
-
-        if(input.length) {
-            result = availableKeywords.filter((keyword)=>{
-                return keyword.name.toLowerCase().includes(input.toLowerCase()) || keyword.number.toString().includes(input);
-            });
-            console.log(result);
-        }
-        display(result);
-        
-        if(!result.length) {
-            resultBox.innerHTML = "";
-        }
+    if(!result.length) {
+        resultBox.innerHTML = "";
     }
 
     function display(result) {
@@ -64,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function() {
         items.forEach(item => {
             item.addEventListener("click", () => {
                 // Set the input to show the formatted team info
-                inputBox.value = item.textContent;
                 resultBox.innerHTML = "";
                 
                 // Extract team number and name from the text
@@ -75,10 +60,5 @@ document.addEventListener("DOMContentLoaded", function() {
                 window.location.href = `insights.html?team=${encodeURIComponent(team)}`;
             });
         });
-    }
-
-    function selectInput(list) {
-        inputBox.value = list.innerHTML;
-        resultBox.innerHTML = "";
     }
 });
