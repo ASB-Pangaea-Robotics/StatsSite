@@ -146,6 +146,8 @@ button {
     border-radius: 10px;
     margin: 0 auto;
     padding: 8px;
+
+    cursor: pointer;
 }
 
 .search-results-container ul li {

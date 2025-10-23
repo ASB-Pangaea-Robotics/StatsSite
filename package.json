@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "parcel templates/landing.html",
-    "build": "parcel templates/build landing.html"
+    "dev": "parcel templates/index.html",
+    "build": "parcel templates/build index.html"
   },
   "devDependencies": {
     "parcel": "^2.6.2"
