@@ -1,5 +1,8 @@
-const canvas = document.getElementById('graph');
-const ctx = canvas.getContext('2d');
+const canvas_teleop = document.getElementById('graph_teleop');
+const ctx_teleop = canvas_teleop.getContext('2d');
+
+const canvas_auto = document.getElementById("graph_auto");
+const ctx_auto = canvas_auto.getContext("2d");
 
 const params = new URLSearchParams(window.location.search);
 const teamName = params.get("team") || "Unknown Team";
@@ -25,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ]
   };
 
-  const config = {
+  const config_teleop = {
     type: 'line',
     data: data,
     options: {
@@ -36,7 +39,24 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         title: {
           display: true,
-          text: `${teamName}: FTC Average Match Scores`,
+          text: `Teleop ${teamName}: FTC Average Match Scores`,
+        }
+      }
+    },
+  };
+
+  const config_auto = {
+    type: 'line',
+    data: data,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+        title: {
+          display: true,
+          text: `Autonomous ${teamName}: FTC Average Match Scores`,
         }
       }
     },
@@ -103,5 +123,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   ];
 
-  const myChart = new Chart(ctx, config);
+  const teleopChart = new Chart(ctx_teleop, config_teleop);
+  const autoChart = new Chart(ctx_auto, config_auto);
 });
