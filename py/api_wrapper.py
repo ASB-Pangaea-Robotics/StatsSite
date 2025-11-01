@@ -11,11 +11,12 @@ import dotenv
 #
 # token = os.getenv("TOKEN")
 
-url = "https://api.ftcscout.org/rest/v1"
+
 test_id = 21971
 
 
-def get_team_data(url: str,team_id: int, operation: str, *args: list[str]) -> dict:
+def get_team_data(team_id: int, operation: str, *args: list[str]) -> dict:
+    url = "https://api.ftcscout.org/rest/v1"
     match operation:
         case "general":
             return dict(requests.get(f"{url}/teams/{team_id}").json())
@@ -24,5 +25,5 @@ def get_team_data(url: str,team_id: int, operation: str, *args: list[str]) -> di
         case _:
             return {"fail": "Please give a valid operation"}
 
-print(get_team_data(url,21971, "previous_season_stats"))
+print(get_team_data(21971, "previous_season_stats"))
 
